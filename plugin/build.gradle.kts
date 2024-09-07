@@ -14,6 +14,11 @@ plugins {
 }
 
 repositories {
+	//优先本地,国内
+	mavenLocal()
+	maven("https://repo.spring.io/release")
+	maven("https://repo.huaweicloud.com/repository/maven/")
+	maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
