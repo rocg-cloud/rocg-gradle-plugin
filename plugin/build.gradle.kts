@@ -16,9 +16,9 @@ plugins {
 repositories {
 	//优先本地,国内
 	mavenLocal()
-	maven("https://repo.spring.io/release")
-	maven("https://repo.huaweicloud.com/repository/maven/")
-	maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
+	//maven("https://repo.spring.io/release")
+	//maven("https://repo.huaweicloud.com/repository/maven/")
+	//maven("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/")
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
@@ -38,10 +38,41 @@ dependencies {
 
 gradlePlugin {
     // Define the plugin
-    val greeting by plugins.creating {
-        id = "org.example.greeting"
-        implementationClass = "org.example.RocgGradlePluginPlugin"
-    }
+//    val greeting by plugins.creating {
+//        id = "org.example.greeting"
+//        implementationClass = "org.example.RocgGradlePluginPlugin"
+//    }
+
+	plugins {
+		create("bomPlugin") {
+			id = "com.rocg.bom"
+			implementationClass = "com.rocg.boot.BomPlugin"
+		}
+		create("modulePlugin") {
+			id = "com.rocg.module"
+			implementationClass = "com.rocg.boot.ModulePlugin"
+		}
+		create("commonPlugin") {
+			id = "com.rocg.common"
+			implementationClass = "com.rocg.boot.CommonPlugin"
+		}
+		create("rootProjectPlugin") {
+			id = "com.rocg.root"
+			implementationClass = "com.rocg.boot.RootPlugin"
+		}
+		create("servicePlugin") {
+			id = "com.rocg.service"
+			implementationClass = "com.rocg.boot.ServicePlugin"
+		}
+		create("deployedPlugin") {
+			id = "com.rocg.mvn.deployed"
+			implementationClass = "com.rocg.boot.maven.DeployedPlugin"
+		}
+//		create("protobufPlugin"){
+//			id = "google.protobuf"
+//			implementationClass = "com.google.protobuf.gradle.ProtobufPlugin"
+//		}
+	}
 }
 
 // Add a source set for the functional test suite

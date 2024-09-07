@@ -1,0 +1,12 @@
+
+
+# 关于 group，mavenInfo
+
+文章来源 +
+link:https://plugins.gradle.org/docs/publish-plugin[How do I publish my plugin to the Plugin Portal using version 1.0+?]
+
+* `The GitHub group ID prefix can't be com.github`。
+
+
+
+

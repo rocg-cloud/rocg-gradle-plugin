@@ -86,7 +86,7 @@ abstract class DeployedPlugin : Plugin<Project> {
 				pom.name.set(project.name)
 				pom.description.set(project.description)
 			}
-			pom.url.set("https://github.com/livk-cloud/" + project.rootProject.name)
+			pom.url.set("https://github.com/rocg-cloud/" + project.rootProject.name)
 			pom.licenses { licenses ->
 				licenses.license { license ->
 					license.name.set("The Apache License, Version 2.0")
@@ -95,13 +95,13 @@ abstract class DeployedPlugin : Plugin<Project> {
 			}
 			pom.developers { developers ->
 				developers.developer { developer ->
-					developer.name.set("livk")
-					developer.email.set("livk.cloud@gmail.com")
+					developer.name.set("rocg")
+					developer.email.set("rocg.cloud@gmail.com")
 				}
 			}
 			pom.scm { scm ->
-				scm.connection.set("git@github.com:livk-cloud/" + project.rootProject.name + ".git")
-				scm.url.set("https://github.com/livk-cloud/" + project.rootProject.name + "/")
+				scm.connection.set("git@github.com:rocg-cloud/" + project.rootProject.name + ".git")
+				scm.url.set("https://github.com/rocg-cloud/" + project.rootProject.name + "/")
 			}
 		}
 	}
