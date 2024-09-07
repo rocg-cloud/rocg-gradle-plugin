@@ -13,7 +13,10 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 
 	//将插件发布到 Gradle 插件门户
-	alias(libs.plugins.gradle.plugin.publish)
+	//alias(libs.plugins.gradle.plugin.publish)
+
+	//buildSrc
+	com.rocg.maven.deployed
 }
 
 repositories {
@@ -85,13 +88,13 @@ gradlePlugin {
 			description = "The packaging method is spring bootJar"
 			tags = listOf("spring", "bootJar")
 		}
-		create("deployedPlugin") {
-			id = "io.github.rocwg.gradle.plugin.mvn.deployed"
-			implementationClass = "io.github.rocwg.gradle.plugin.maven.DeployedPlugin"
-			displayName = "DeployedPlugin"
-			description = "Used to deploy releases to MVN"
-			tags = listOf("deploy", "maven")
-		}
+//		create("deployedPlugin") {
+//			id = "io.github.rocwg.gradle.plugin.mvn.deployed"
+//			implementationClass = "io.github.rocwg.gradle.plugin.maven.DeployedPlugin"
+//			displayName = "DeployedPlugin"
+//			description = "Used to deploy releases to MVN"
+//			tags = listOf("deploy", "maven")
+//		}
 //		create("protobufPlugin"){
 //			id = "google.protobuf"
 //			implementationClass = "com.google.protobuf.gradle.ProtobufPlugin"
