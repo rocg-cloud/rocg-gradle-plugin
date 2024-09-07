@@ -24,6 +24,12 @@ repositories {
 }
 
 dependencies {
+	//spring gradle
+	implementation("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.spring.boot.get()}")
+	implementation("io.spring.javaformat:spring-javaformat-gradle-plugin:${libs.versions.spring.javaformat.get()}")
+	//google protobuf
+	implementation("com.google.protobuf:protobuf-gradle-plugin:${libs.versions.google.protobuf.plugins.get()}")
+	implementation("com.google.gradle:osdetector-gradle-plugin:${libs.versions.google.osdetector.plugins.get()}")
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
@@ -62,4 +68,13 @@ tasks.named<Task>("check") {
 tasks.named<Test>("test") {
     // Use JUnit Jupiter for unit tests.
     useJUnitPlatform()
+}
+
+// 有什么用？
+tasks.withType<Jar> {
+	manifest.attributes.putIfAbsent(
+		"Created-By",
+		System.getProperty("java.version") + " (" + System.getProperty("java.specification.vendor") + ")"
+	)
+	manifest.attributes.putIfAbsent("Gradle-Version", GradleVersion.current())
 }
