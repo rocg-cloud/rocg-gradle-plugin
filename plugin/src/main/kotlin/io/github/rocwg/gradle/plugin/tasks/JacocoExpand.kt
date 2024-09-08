@@ -14,20 +14,36 @@
  * limitations under the License.
  */
 
-package com.rocg.boot
+package io.github.rocwg.gradle.plugin.tasks
 
-import com.rocg.boot.info.BootPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.JavaPlugin
+import org.gradle.api.tasks.testing.Test
+import org.gradle.testing.jacoco.plugins.JacocoPlugin
+import org.gradle.testing.jacoco.tasks.JacocoReport
 
 /**
  * @author livk
  */
-class ServicePlugin : Plugin<Project> {
+abstract class JacocoExpand : Plugin<Project> {
+	companion object {
+		private const val TASK_NAME = "jacocoTestReport"
+	}
+
 	override fun apply(project: Project) {
-		project.pluginManager.apply(JavaPlugin::class.java)
-		project.pluginManager.apply(ModulePlugin::class.java)
-		project.pluginManager.apply(BootPlugin::class.java)
+		project.pluginManager.apply(JacocoPlugin::class.java)
+
+		project.tasks.withType(Test::class.java) {
+			it.finalizedBy(TASK_NAME)
+		}
+
+		project.tasks.named(TASK_NAME, JacocoReport::class.java){ jacocoReport->
+			jacocoReport.dependsOn("test")
+
+			jacocoReport.reports{
+				it.xml.required.set(true)
+				it.html.required.set(false)
+			}
+		}
 	}
 }

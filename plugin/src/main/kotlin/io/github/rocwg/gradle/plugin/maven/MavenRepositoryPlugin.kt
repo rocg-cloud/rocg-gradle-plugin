@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.maven
+package io.github.rocwg.gradle.plugin.maven
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

@@ -45,28 +45,28 @@ gradlePlugin {
 
 	plugins {
 		create("bomPlugin") {
-			id = "com.rocg.bom"
-			implementationClass = "com.rocg.boot.BomPlugin"
+			id = "io.github.rocwg.gradle.plugin.bom"
+			implementationClass = "io.github.rocwg.gradle.plugin.BomPlugin"
 		}
 		create("modulePlugin") {
-			id = "com.rocg.module"
-			implementationClass = "com.rocg.boot.ModulePlugin"
+			id = "io.github.rocwg.gradle.plugin.module"
+			implementationClass = "io.github.rocwg.gradle.plugin.ModulePlugin"
 		}
 		create("commonPlugin") {
-			id = "com.rocg.common"
-			implementationClass = "com.rocg.boot.CommonPlugin"
+			id = "io.github.rocwg.gradle.plugin.common"
+			implementationClass = "io.github.rocwg.gradle.plugin.CommonPlugin"
 		}
 		create("rootProjectPlugin") {
-			id = "com.rocg.root"
-			implementationClass = "com.rocg.boot.RootPlugin"
+			id = "io.github.rocwg.gradle.plugin.root"
+			implementationClass = "io.github.rocwg.gradle.plugin.RootPlugin"
 		}
 		create("servicePlugin") {
-			id = "com.rocg.service"
-			implementationClass = "com.rocg.boot.ServicePlugin"
+			id = "io.github.rocwg.gradle.plugin.service"
+			implementationClass = "io.github.rocwg.gradle.plugin.ServicePlugin"
 		}
 		create("deployedPlugin") {
-			id = "com.rocg.mvn.deployed"
-			implementationClass = "com.rocg.boot.maven.DeployedPlugin"
+			id = "io.github.rocwg.gradle.plugin.mvn.deployed"
+			implementationClass = "io.github.rocwg.gradle.plugin.maven.DeployedPlugin"
 		}
 //		create("protobufPlugin"){
 //			id = "google.protobuf"

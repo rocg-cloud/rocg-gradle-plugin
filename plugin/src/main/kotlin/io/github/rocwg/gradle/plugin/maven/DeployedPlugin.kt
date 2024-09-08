@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.maven
+package io.github.rocwg.gradle.plugin.maven
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -86,7 +86,7 @@ abstract class DeployedPlugin : Plugin<Project> {
 				pom.name.set(project.name)
 				pom.description.set(project.description)
 			}
-			pom.url.set("https://github.com/rocg-cloud/" + project.rootProject.name)
+			pom.url.set("https://github.com/rocwg/" + project.rootProject.name)
 			pom.licenses { licenses ->
 				licenses.license { license ->
 					license.name.set("The Apache License, Version 2.0")
@@ -95,13 +95,13 @@ abstract class DeployedPlugin : Plugin<Project> {
 			}
 			pom.developers { developers ->
 				developers.developer { developer ->
-					developer.name.set("rocg")
-					developer.email.set("rocg.cloud@gmail.com")
+					developer.name.set("rocwg")
+					developer.email.set("rocwg@gmail.com")
 				}
 			}
 			pom.scm { scm ->
-				scm.connection.set("git@github.com:rocg-cloud/" + project.rootProject.name + ".git")
-				scm.url.set("https://github.com/rocg-cloud/" + project.rootProject.name + "/")
+				scm.connection.set("git@github.com:rocwg/" + project.rootProject.name + ".git")
+				scm.url.set("https://github.com/rocwg/" + project.rootProject.name + "/")
 			}
 		}
 	}

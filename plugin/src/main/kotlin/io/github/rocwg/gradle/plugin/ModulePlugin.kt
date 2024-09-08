@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.rocg.boot
+package io.github.rocwg.gradle.plugin
 
-import com.rocg.boot.compile.CompileArgsPlugin
-import com.rocg.boot.info.ExtractResources
-import com.rocg.boot.tasks.JacocoExpand
+import io.github.rocwg.gradle.plugin.compile.CompileArgsPlugin
+import io.github.rocwg.gradle.plugin.info.ExtractResources
+import io.github.rocwg.gradle.plugin.tasks.JacocoExpand
 import io.spring.javaformat.gradle.SpringJavaFormatPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project

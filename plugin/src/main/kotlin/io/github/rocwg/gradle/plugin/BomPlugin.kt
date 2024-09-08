@@ -14,26 +14,22 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.tasks
+package io.github.rocwg.gradle.plugin
 
+import io.github.rocwg.gradle.plugin.maven.DeployedPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.tasks.Delete
+import org.gradle.api.plugins.JavaPlatformExtension
+import org.gradle.api.plugins.JavaPlatformPlugin
 
 /**
  * @author livk
  */
-abstract class DeleteExpand : Plugin<Project> {
-
-	companion object {
-		private val cleanFiles = setOf("build", "out", "bin", "src/main/generated", "src/test/generated_tests")
-	}
-
+class BomPlugin : Plugin<Project> {
 	override fun apply(project: Project) {
-		project.tasks.withType(Delete::class.java) {
-			cleanFiles.forEach { fileName ->
-				it.delete(project.projectDir.absolutePath + "/$fileName")
-			}
-		}
+		project.pluginManager.apply(JavaPlatformPlugin::class.java)
+		project.pluginManager.apply(DeployedPlugin::class.java)
+
+		project.extensions.getByType(JavaPlatformExtension::class.java).allowDependencies()
 	}
 }

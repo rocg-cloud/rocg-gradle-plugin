@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.info
+package io.github.rocwg.gradle.plugin.info
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException

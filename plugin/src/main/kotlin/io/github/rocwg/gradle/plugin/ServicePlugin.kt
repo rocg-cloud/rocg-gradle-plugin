@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.compile
+package io.github.rocwg.gradle.plugin
 
+import io.github.rocwg.gradle.plugin.info.BootPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.JavaLibraryPlugin
 import org.gradle.api.plugins.JavaPlugin
 
 /**
  * @author livk
  */
-abstract class ResourcesPlugin : Plugin<Project> {
-
+class ServicePlugin : Plugin<Project> {
 	override fun apply(project: Project) {
-		project.pluginManager.apply(JavaLibraryPlugin::class.java)
-		project.tasks
-			.named(JavaPlugin.COMPILE_JAVA_TASK_NAME).get()
-			.dependsOn(JavaPlugin.PROCESS_RESOURCES_TASK_NAME)
+		project.pluginManager.apply(JavaPlugin::class.java)
+		project.pluginManager.apply(ModulePlugin::class.java)
+		project.pluginManager.apply(BootPlugin::class.java)
 	}
 }

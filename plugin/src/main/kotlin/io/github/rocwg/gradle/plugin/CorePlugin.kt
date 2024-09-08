@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.rocg.boot
+package io.github.rocwg.gradle.plugin
 
-import com.rocg.boot.dependency.CompileProcessorPlugin
-import com.rocg.boot.dependency.ManagementPlugin
-import com.rocg.boot.dependency.OptionalPlugin
-import com.rocg.boot.info.ManifestPlugin
-import com.rocg.boot.tasks.DeleteExpand
+import io.github.rocwg.gradle.plugin.dependency.CompileProcessorPlugin
+import io.github.rocwg.gradle.plugin.dependency.ManagementPlugin
+import io.github.rocwg.gradle.plugin.dependency.OptionalPlugin
+import io.github.rocwg.gradle.plugin.info.ManifestPlugin
+import io.github.rocwg.gradle.plugin.tasks.DeleteExpand
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

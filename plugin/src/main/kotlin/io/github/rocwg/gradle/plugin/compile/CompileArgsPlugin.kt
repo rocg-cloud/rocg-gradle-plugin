@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rocg.boot.compile
+package io.github.rocwg.gradle.plugin.compile
 
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
