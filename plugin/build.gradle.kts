@@ -11,6 +11,9 @@ plugins {
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
+
+	//将插件发布到 Gradle 插件门户
+	alias(libs.plugins.gradle.plugin.publish)
 }
 
 repositories {
@@ -37,6 +40,9 @@ dependencies {
 }
 
 gradlePlugin {
+	website.set("https://github.com/rocg-cloud/rocg-gradle-plugin")
+	vcsUrl.set("https://github.com/rocg-cloud/rocg-gradle-plugin.git")
+
     // Define the plugin
 //    val greeting by plugins.creating {
 //        id = "org.example.greeting"
@@ -47,26 +53,44 @@ gradlePlugin {
 		create("bomPlugin") {
 			id = "io.github.rocwg.gradle.plugin.bom"
 			implementationClass = "io.github.rocwg.gradle.plugin.BomPlugin"
+			displayName = "BomPlugin"
+			description = "bom or dependencies use"
+			tags = listOf("bom", "dependencies")
 		}
 		create("modulePlugin") {
 			id = "io.github.rocwg.gradle.plugin.module"
 			implementationClass = "io.github.rocwg.gradle.plugin.ModulePlugin"
+			displayName = "ModulePlugin"
+			description = "Used to mark modules, all available nodes"
+			tags = listOf("modules", "nodes")
 		}
 		create("commonPlugin") {
 			id = "io.github.rocwg.gradle.plugin.common"
 			implementationClass = "io.github.rocwg.gradle.plugin.CommonPlugin"
+			displayName = "CommonPlugin"
+			description = "The packaging method is ordinary jar instead of spring bootJar"
+			tags = listOf("jar", "package")
 		}
 		create("rootProjectPlugin") {
 			id = "io.github.rocwg.gradle.plugin.root"
 			implementationClass = "io.github.rocwg.gradle.plugin.RootPlugin"
+			displayName = "RootPlugin"
+			description = "Used to mark certain root nodes to directly operate sub-packages"
+			tags = listOf("rootNodes")
 		}
 		create("servicePlugin") {
 			id = "io.github.rocwg.gradle.plugin.service"
 			implementationClass = "io.github.rocwg.gradle.plugin.ServicePlugin"
+			displayName = "ServicePlugin"
+			description = "The packaging method is spring bootJar"
+			tags = listOf("spring", "bootJar")
 		}
 		create("deployedPlugin") {
 			id = "io.github.rocwg.gradle.plugin.mvn.deployed"
 			implementationClass = "io.github.rocwg.gradle.plugin.maven.DeployedPlugin"
+			displayName = "DeployedPlugin"
+			description = "Used to deploy releases to MVN"
+			tags = listOf("deploy", "maven")
 		}
 //		create("protobufPlugin"){
 //			id = "google.protobuf"
