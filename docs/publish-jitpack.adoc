@@ -1,0 +1,14 @@
+
+
+* 项目使用GitHub来进行托管了，就是把项目上传到GitHub。(Public或者Private都行)
+* 在项目仓库主页的右边菜单列表，找到Releases，点击「Create a new release」。 如果已经发布过了，这里就是发布记录，点进去可以「Draft a new release」。
+** 设置tag，即版本号，如果不是正式版，可以在后面加上alpha，比如1.0-alpha；
+** 选择发布的分支；
+** 布标题；
+** 发布描述；
+** 点击「Publish release」进行发布；发布完成会有产物和记录
+* 打开Jitpack官网：www.jitpack.io/，在输入框里输入yechaoa/GradleX，即username+project。
+** 然后点击Look up开始查找和构建。
+** 构建完成有了Log日志之后，即可以点击Get it获取使用方式。
+*** 首先要添加jitpack的仓库地址；
+*** 然后添加项目依赖，因为是基于GitHub发布的，域名前缀会com.github，自定义需要添加映射；
